@@ -14,8 +14,6 @@ def polling_unit(request, id):
 
 def total_res_lga(request):
    if request.method == 'GET':
-        #lga = request.POST.get('lga')
-        #lga = 'Aniocha North'
         lga = Lga.objects.all()
         for lg in lga:
             lga_id = Lga.objects.get(lga_name=lg.lga_name).lga_id
@@ -34,8 +32,5 @@ def total_res_lga(request):
         context = {
             'lga': lga
         }
-        # print(score)
-        #score = pu_ids.aggregate(Sum('party_score'))['party_score__sum']
 
-        #lga_total = AnnouncedPuResults.objects.filter()
         return render(request, 'total.html', context)
